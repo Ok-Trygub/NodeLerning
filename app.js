@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const mongoService = require('./databaseService');
+const mongoService = require('./services/databaseService');
 
 const app = express();
 
@@ -55,10 +55,19 @@ mongoService.connectToMongoDB().then(() => {
         }
     });
 
-
     app.listen(port, () => {
         console.log(`NodeLearning app listening on port ${port}`)
     })
+
+    app.use((req, res) => {
+        console.error(res);
+        res.status(400).send('Bad Request!');
+    });
+
+    app.use((req, res) => {
+        console.error(res);
+        res.status(500).send('Something broke!');
+    });
 
 }).catch(err => {
     console.error('Failed to connect to MongoDB:', err);
