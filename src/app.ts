@@ -30,7 +30,6 @@ app.get('/', (req, res) => {
 
 const PORT: number = parseInt(process.env.PORT || '3000', 10)
 
-
 AppDataSource.initialize()
     .then(async () => {
         app.listen(PORT, () => {
