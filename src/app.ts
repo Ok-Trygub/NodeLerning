@@ -11,7 +11,7 @@ import hpp from 'hpp';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import {AppDataSource} from './data-sourсe';
-import * as process from "process";
+import routesPath from './routes/auth'
 
 
 const app: Express = express();
@@ -23,12 +23,14 @@ app.use(compression());
 app.use(helmet());
 app.use(hpp());
 
+app.use('/api/auth', routesPath);
+
 
 app.get('/', (req, res) => {
     res.send('Hello from server!')
 });
 
-const PORT: number = parseInt(process.env.PORT || '3000', 10)
+const PORT: number = parseInt(process.env.PORT || '4400', 10)
 
 AppDataSource.initialize()
     .then(async () => {
