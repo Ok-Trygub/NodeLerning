@@ -30,6 +30,16 @@ app.get('/', (req, res) => {
     res.send('Hello from server!')
 });
 
+app.use((req, res) => {
+    console.error(res);
+    res.status(400).send('Bad Request!');
+});
+
+app.use((req, res) => {
+    console.error(res);
+    res.status(500).send('Something broke!');
+});
+
 const PORT: number = parseInt(process.env.PORT || '4400', 10)
 
 AppDataSource.initialize()
