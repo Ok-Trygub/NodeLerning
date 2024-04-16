@@ -25,7 +25,6 @@ app.use(hpp());
 
 app.use('/api/auth', routesPath);
 
-
 app.get('/', (req, res) => {
     res.send('Hello from server!')
 });
