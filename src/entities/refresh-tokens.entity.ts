@@ -1,17 +1,17 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    BaseEntity,
-    DeleteDateColumn,
-    CreateDateColumn,
-    UpdateDateColumn
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  DeleteDateColumn,
+  CreateDateColumn,
+  UpdateDateColumn
 } from 'typeorm';
 
 @Entity({name: 'refresh_tokens'})
 export class RefreshToken extends BaseEntity {
     @PrimaryGeneratedColumn()
-    public id!: number;
+  public id!: number;
 
     @Column({type: 'int'})
     public userId!: number;
@@ -23,11 +23,11 @@ export class RefreshToken extends BaseEntity {
     public expireDate!: Date;
 
     @CreateDateColumn({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
-    createAt: Date;
+      createAt: Date;
 
     @UpdateDateColumn({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP'})
-    updatedAt: Date;
+      updatedAt: Date;
 
     @DeleteDateColumn({type: 'timestamp', nullable: true})
-    deletedAt: Date;
+      deletedAt: Date;
 }
