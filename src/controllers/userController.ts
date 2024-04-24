@@ -5,37 +5,50 @@ import {CreateUserDto} from '../dto/user.dto';
 
 
 export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const {users, count} = await userService.getAllUsers();
-    res.status(200).json({users, count});
+    try {
+        const {users, count} = await userService.getAllUsers();
+        res.status(200).json({users, count});
 
-  } catch (error: unknown) {
-    console.error(error);
-    res.status(500).send(ErrorMessage.errorGetAllUsers);
-  }
+    } catch (error: unknown) {
+        console.error(error);
+        res.status(500).send(ErrorMessage.errorGetAllUsers);
+    }
 };
 
 export const createUser = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const userDto: CreateUserDto = req.body;
-    const user = await userService.createUser(userDto);
-    res.json(user);
+    try {
+        const userDto: CreateUserDto = req.body;
+        const user = await userService.createUser(userDto);
+        res.json(user);
 
-  } catch (error) {
-    res.status(500).json({error: error.message});
-  }
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
 };
 
 export const updateUser = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const id = +req.params.id;
-    const userDto = req.body;
-    const user = await userService.updateUser(id, userDto);
+    try {
+        const id = +req.params.id;
+        const userDto = req.body;
+        const user = await userService.updateUser(id, userDto);
 
-    res.status(200).json({user});
-  } catch (error) {
-    res.status(500).json({error: error.message});
-  }
+        res.status(200).json({user});
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
 };
+
+export const addProduct = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const userId = +req.params.id;
+        const productId = +req.params.productId;
+        const user = await userService.addProduct(userId, productId);
+
+        res.status(200).json({user});
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+};
+
 
 

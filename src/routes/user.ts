@@ -8,6 +8,7 @@ const router: Router = express.Router();
 
 router.get('/', authMiddleware(), userController.getAllUsers);
 router.post('/', authMiddleware(), validationMiddleware(CreateUserDto, 'body'), userController.createUser);
+router.post('/:id/add-product/:productId', authMiddleware(), userController.addProduct);
 router.patch('/:id', authMiddleware(), validationMiddleware(UpdateUserDto, 'body'), userController.updateUser);
 
 export default router;

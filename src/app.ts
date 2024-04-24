@@ -12,7 +12,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import {AppDataSource} from './data-sourсe';
 import routesAuth from './routes/auth';
-import routesUser from './routes/users';
+import routesUser from './routes/user';
+import routesProduct from './routes/product';
 
 
 const app: Express = express();
@@ -26,6 +27,8 @@ app.use(hpp());
 
 app.use('/api/auth', routesAuth);
 app.use('/api/users', routesUser);
+app.use('/api/products', routesProduct);
+
 
 app.get('/', (req, res) => {
   res.send('Hello from server!');
