@@ -16,7 +16,8 @@ export const registerUser = async (registerUserData: any) => {
   const newUser: User = await User.save({
     name,
     email,
-    password: hashedPassword
+    password: hashedPassword,
+    userRoleId: 2
   });
   return newUser;
 };
