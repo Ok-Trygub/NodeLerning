@@ -10,7 +10,6 @@ export const getAllProducts = async (req: Request, res: Response): Promise<void>
         res.status(200).json({products, count});
 
     } catch (error: unknown) {
-        console.error(error);
         res.status(500).send(ErrorMessage.errorGetAllUsers);
     }
 };
@@ -22,7 +21,6 @@ export const getProductById = async (req: Request, res: Response): Promise<void>
         res.status(200).json(currentProduct);
 
     } catch (error: unknown) {
-        console.error(error);
         res.status(500).send(ErrorMessage.errorGetProduct);
     }
 };

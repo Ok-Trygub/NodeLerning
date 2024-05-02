@@ -6,7 +6,7 @@ import {
     DeleteDateColumn,
     CreateDateColumn,
     UpdateDateColumn,
-    ManyToMany, JoinTable
+    ManyToMany, JoinTable,
 } from 'typeorm';
 import {Product} from "./products.entity";
 

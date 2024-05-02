@@ -9,7 +9,6 @@ import {
     ManyToMany, JoinTable
 } from 'typeorm';
 import {User} from "./users.entity";
-import user from "../routes/user";
 
 
 @Entity({name: 'products'})
