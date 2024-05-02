@@ -13,7 +13,6 @@ export const register = async (req: Request, res: Response) => {
 
     res.status(201).json({message: 'User register successfully', user: newUser});
   } catch (error: unknown) {
-    console.error(error);
     res.status(500).send(ErrorMessage.errorRegisterUser);
   }
 };
