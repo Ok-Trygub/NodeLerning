@@ -18,7 +18,6 @@ import morgan from 'morgan';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import {Logger} from "./entities/logger.entity";
-import {User} from "./entities/users.entity";
 
 const loggerMiddleware = morgan('dev');
 const app: Express = express();

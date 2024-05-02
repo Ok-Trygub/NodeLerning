@@ -328,63 +328,68 @@ paths:
         500:
           description: 'Server Error!'
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
 
-#    post:
-#      tags: [ "PRODUCTS" ]
-#      summary: 'Create product route'
-#      consumes:
-#        - application/json
-#      produces:
-#        - application/json
-#      parameters:
-#        - in: body
-#          name: ''
-#          schema:
-#            type: object
-#            required:
-#              - name
-#              - color
-#            properties:
-#              name:
-#                type: string
-#                example: 'product'
-#              color:
-#                type: string
-#                example: 'color'
-#      responses:
-#        200:
-#          description: 'Ok'
-#          schema:
-#            type: object
-#            properties:
-#              user:
-#                $ref: '#/definitions/Product'
-#        400:
-#          description: 'Bad request!'
-#        500:
-#          description: 'Server Error!'
-#      security:
-#        - bearerAuth: [ ]
+    post:
+      tags: ["PRODUCTS"]
+      summary: 'Create product route'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: credentials
+          schema:
+            type: object
+            required:
+              - name
+              - color
+            properties:
+              name:
+                type: string
+                example: 'product'
+              color:
+                type: string
+                example: 'color'
+      responses:
+        200:
+          description: 'Ok'
+          schema:
+            type: object
+            properties:
+              user:
+                $ref: '#/definitions/Product'
+        400:
+          description: 'Bad request!'
+        500:
+          description: 'Server Error!'
+      security:
+        - bearerAuth: []
 
-#  /api/products/:id:
-#    get:
-#      tags: [ "PRODUCTS" ]
-#      summary: 'Get product by id route'
-#      responses:
-#        200:
-#          description: 'Ok'
-#          schema:
-#            type: object
-#            properties:
-#              user:
-#                $ref: '#/definitions/Product'
-#        400:
-#          description: 'Bad request!'
-#        500:
-#          description: 'Server Error!'
-#      security:
-#        - bearerAuth: [ ]
+  /api/products/{id}:
+    get:
+      tags: ["PRODUCTS"]
+      summary: 'Get product by id route'
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: number
+      responses:
+        200:
+          description: 'Ok'
+          schema:
+            type: object
+            properties:
+              user:
+                $ref: '#/definitions/Product'
+        400:
+          description: 'Bad request!'
+        500:
+          description: 'Server Error!'
+      security:
+        - bearerAuth: []
 
 definitions:
   User:
